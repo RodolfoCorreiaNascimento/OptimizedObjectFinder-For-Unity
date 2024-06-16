@@ -1,22 +1,31 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class Example : MonoBehaviour
 {
+    private OptimizedObjectFinder finder;
+    private int targetPrefix = 121; // Define o prefixo numérico desejado
+
     void Start()
     {
-        OptimizedObjectFinder finder = new OptimizedObjectFinder();
-        GameObject foundObject = finder.FindObjectByPrefix(2, 20);
+        finder = FindObjectOfType<OptimizedObjectFinder>(); // Encontra o OptimizedObjectFinder na cena
 
-        if (foundObject != null)
+        if (finder != null)
         {
-            Debug.Log("Objeto encontrado: " + foundObject.name);
+            GameObject foundObject = finder.FindObjectByPrefix(targetPrefix); // Chama o método para encontrar o objeto com o prefixo especificado
+
+            if (foundObject != null)
+            {
+                Debug.Log("Objeto encontrado: " + foundObject.name);
+                // Aqui você pode realizar outras operações com o objeto encontrado, se necessário
+            }
+            else
+            {
+                Debug.Log("Objeto com prefixo " + targetPrefix + " não encontrado.");
+            }
         }
         else
         {
-            Debug.Log("Objeto não encontrado.");
+            Debug.LogError("OptimizedObjectFinder não encontrado na cena.");
         }
-
-
     }
 }
