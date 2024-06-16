@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 
 public class OptimizedObjectFinder : MonoBehaviour
 {
+    #region FindObjByPrefix
     public GameObject FindObjectByPrefix(int targetPrefix)
     {
         List<GameObject> objects = GetAllSceneObjects();
@@ -14,25 +16,31 @@ public class OptimizedObjectFinder : MonoBehaviour
         // Perform optimized binary search using division into 4 parts
         GameObject foundObject = BinarySearchOptimized(objects, targetPrefix);
 
+        // Just for Debug purpose...
         if (foundObject != null)
         {
-            Debug.Log("Objeto encontrado: " + foundObject.name);
+            //Debug.Log("Objeto encontrado: " + foundObject.name);
         }
         else
         {
-            Debug.Log("Objeto com prefixo " + targetPrefix + " não encontrado.");
+            //Debug.Log("Objeto com prefixo " + targetPrefix + " não encontrado.");
         }
 
         // Loop to print sorted objects
         for (int i = 0; i < objects.Count; i++)
         {
-            Debug.Log("Objeto ordenado [" + i + "]: " + objects[i].name);
+            //Debug.Log("Objeto ordenado [" + i + "]: " + objects[i].name);
         }
 
         return foundObject;
     }
 
+    #endregion
 
+    #region InsertAllGameObjectsIntoList
+    /// <summary>
+    /// Get all the GameObjects in the Scene and Add them to a List<GameObject>
+    /// </summary>
     private List<GameObject> GetAllSceneObjects()
     {
         List<GameObject> objects = new List<GameObject>();
@@ -46,13 +54,16 @@ public class OptimizedObjectFinder : MonoBehaviour
             if (char.IsDigit(obj.name[0]))
             {
                 objects.Add(obj);
-                Debug.Log("Added object: " + obj.name);
+                //Debug.Log("Added object: " + obj.name);
             }
         }
 
         return objects;
     }
 
+    #endregion
+
+    #region BinarySearchOptimized
     private GameObject BinarySearchOptimized(List<GameObject> objects, int targetPrefix)
     {
         int low = 0;
@@ -108,6 +119,13 @@ public class OptimizedObjectFinder : MonoBehaviour
         return null;
     }
 
+    #endregion
+
+    #region GetPrefix
+
+    /// <summary>
+    /// Get the first character prefix and convert it to number.
+    /// </summary>
     private int GetPrefix(string name)
     {
         // Encontra o primeiro grupo de caracteres numéricos no nome do objeto e converte para int
@@ -139,8 +157,44 @@ public class OptimizedObjectFinder : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Não foi possível converter o prefixo numérico em inteiro: " + prefixBuilder.ToString());
+            //Debug.LogWarning("Não foi possível converter o prefixo numérico em inteiro: " + prefixBuilder.ToString());
             return -1; // Ou outro valor padrão que indique erro, se necessário
         }
     }
+
+    #endregion
+
+    #region FindObject
+
+    /// <summary>
+    /// Insert the ID of the GameObject to return the GameObje itself
+    /// Ex: GameObject obj = FindObject(IDGameObject.Instance.Player); then you can use the GameObject
+    /// You can test it using Debug.Log($"Object Found: {obj}");
+    /// </summary>
+    public GameObject FindObject(int targetPrefix)
+    {
+        if (this.gameObject != null)
+        {
+            GameObject foundObject = FindObjectByPrefix(targetPrefix); // Chama o método para encontrar o objeto com o prefixo especificado
+
+            if (foundObject != null)
+            {
+                //Debug.Log("Objeto encontrado: " + foundObject.name);
+                // Aqui você pode realizar outras operações com o objeto encontrado, se necessário
+                return foundObject;
+            }
+            else
+            {
+                return null;
+                //Debug.Log("Objeto com prefixo " + targetPrefix + " não encontrado.");
+            }
+        }
+        else
+        {
+            //Debug.LogError("OptimizedObjectFinder não encontrado na cena.");
+        }
+        return null;
+    }
+
+    #endregion
 }
