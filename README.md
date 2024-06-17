@@ -21,9 +21,26 @@ Therefore, due to the greater complexity and greater number of operations involv
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # How to use
-This script is an extension, for example if you have a GameObject renamed as 27-PlayerProjectile you can pass the value 27 to the function OptimizedObjectFinderExtensions.FindObject(27), Another Example: you can reference: GameObject object obj = OptimizedObjectFinderExtensions.FindObject(27 ) or Also use in comparison: if(col.gameObject == OptimizedObjectFinderExtensions.FindObject(27)) { //code here }
 
-Next Goal:
+This script is an extension that makes it easier to search for GameObjects by IDs. For example, if you rename a GameObject to "27-PlayerProjectile", you can pass the value 27 to the OptimizedObjectFinderExtensions.FindObject(27) function. See some usage examples:
+
+// Example 1: Search for a GameObject by ID
+GameObject obj = OptimizedObjectFinderExtensions.FindObject(27);
+
+// Example 2: Use in a comparison within an OnCollision method
+void OnCollisionEnter(Collision col) {
+    if (col.gameObject == OptimizedObjectFinderExtensions.FindObject(27)) {
+        // Code to be executed when GameObject with ID 27 collides
+    }
+}
+
+// Example 3: Search and use the GameObject
+GameObject projectile = OptimizedObjectFinderExtensions.FindObject(27);
+if (projectile != null) {
+    // Code to manipulate the projectile
+}
+
+# Next Goal
 
 The next goal is to get the names of all objects in the Unity scene, store them in a list, and generate a numeric ID for each object. Then implement a binary search of these IDs to improve performance. Additionally, an extension will be created to automatically generate IDs for all GameObjects in the scene and in Prefabs, eliminating the need to manually set the numeric prefix on GameObjects.
 
