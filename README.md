@@ -1,8 +1,6 @@
 ![PerformanceTest_FullUnityScreen](https://github.com/RodolfoCorreiaNascimento/OptimizedObjectFinder-For-Unity/assets/64981849/dde91652-90e4-4f21-ba48-70545506c47b)
 
-
-![PerformanceTest](https://github.com/RodolfoCorreiaNascimento/OptimizedObjectFinder-For-Unity/assets/64981849/e777fd1b-1697-463c-bcb7-6a2f4da7d1b2)
-
+![PerformanceTest](https://github.com/RodolfoCorreiaNascimento/OptimizedObjectFinder-For-Unity/assets/64981849/4bbc5fab-9d33-41f9-9eed-81b2e514a54f)
 
 # OptimizedObjectFinder-For-Unity
 A script in C# to use Unity methods more efficiently, making the processing cost very low and your codes using the GameObject.Find and CompareTag methods much more efficient, the performance is second only to GameObject.FindGameObjectsWithTag as we know that searching for Strings generates high costs, remembering that the scene objects for this Extension need to be named this way ex: 1-sword, 2-shield, 3-fire in this way you probably are going to generate a sucess binary search for your object.
