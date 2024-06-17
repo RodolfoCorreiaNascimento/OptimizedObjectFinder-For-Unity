@@ -2,12 +2,11 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
 
-public class OptimizedObjectFinder : Singleton<OptimizedObjectFinder>
+public static class OptimizedObjectFinderExtensions
 {
-    private Dictionary<int, List<GameObject>> prefixDictionary = new Dictionary<int, List<GameObject>>();
+    private static Dictionary<int, List<GameObject>> prefixDictionary = new Dictionary<int, List<GameObject>>();
 
-    #region FindObjectByPrefix
-    public GameObject FindObjectByPrefix(int targetPrefix)
+    public static GameObject FindObjectByPrefix(this GameObject gameObject, int targetPrefix)
     {
         if (!prefixDictionary.ContainsKey(targetPrefix))
         {
@@ -29,10 +28,8 @@ public class OptimizedObjectFinder : Singleton<OptimizedObjectFinder>
 
         return null;
     }
-    #endregion
 
-    #region RefreshCache
-    private void RefreshCache()
+    public static void RefreshCache()
     {
         prefixDictionary.Clear();
 
@@ -55,10 +52,8 @@ public class OptimizedObjectFinder : Singleton<OptimizedObjectFinder>
             }
         }
     }
-    #endregion
 
-    #region GetPrefix
-    private int GetPrefix(string name)
+    public static int GetPrefix(string name)
     {
         // Encontra o primeiro grupo de caracteres numéricos no nome do objeto e converte para int
         StringBuilder prefixBuilder = new StringBuilder();
@@ -91,28 +86,19 @@ public class OptimizedObjectFinder : Singleton<OptimizedObjectFinder>
             return -1; // Ou outro valor padrão que indique erro, se necessário
         }
     }
-    #endregion
 
-    #region FindObject
-    public GameObject FindObject(int targetPrefix)
+    public static GameObject FindObject(this GameObject gameObject, int targetPrefix)
     {
-        if (this.gameObject != null)
+        if (gameObject != null)
         {
-            GameObject foundObject = FindObjectByPrefix(targetPrefix);
+            GameObject foundObject = gameObject.FindObjectByPrefix(targetPrefix);
 
             if (foundObject != null)
             {
                 return foundObject;
             }
-            else
-            {
-                return null;
-            }
         }
-        else
-        {
-            return null;
-        }
+
+        return null;
     }
-    #endregion
 }
