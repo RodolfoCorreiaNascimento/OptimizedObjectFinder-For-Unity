@@ -1,7 +1,7 @@
 ![PerformanceTest_FullUnityScreen](https://github.com/RodolfoCorreiaNascimento/OptimizedObjectFinder-For-Unity/assets/64981849/dde91652-90e4-4f21-ba48-70545506c47b)
 
 
-![PerformanceTest_FullUnityScreen](https://github.com/RodolfoCorreiaNascimento/OptimizedObjectFinder-For-Unity/assets/64981849/e777fd1b-1697-463c-bcb7-6a2f4da7d1b2)
+![PerformanceTest](https://github.com/RodolfoCorreiaNascimento/OptimizedObjectFinder-For-Unity/assets/64981849/e777fd1b-1697-463c-bcb7-6a2f4da7d1b2)
 
 
 # OptimizedObjectFinder-For-Unity
