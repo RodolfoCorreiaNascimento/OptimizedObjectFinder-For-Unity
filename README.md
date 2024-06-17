@@ -3,9 +3,9 @@
 ![PerformanceTest](https://github.com/RodolfoCorreiaNascimento/OptimizedObjectFinder-For-Unity/assets/64981849/4bbc5fab-9d33-41f9-9eed-81b2e514a54f)
 
 # OptimizedObjectFinder-For-Unity
-A script in C# to use Unity methods more efficiently, making the processing cost very low and your codes using the GameObject.Find and CompareTag and GameObject.FindGameObjectsWithTag methods much more efficient as we know that searching for Strings generates high costs,  remembering that the scene objects for this Extension need to be named this way ex: 1-sword, 2-shield, 3-fire in this way you probably are going to generate a sucess binary search for your object.
+A Unity Extension to gain performance, GameObject.Find / CompareTag / GameObject.FindGameObjectsWithTag cost much more making the cpu processing cost very high using String compare, those methods cost much more as we know that searching for Strings generates high costs, With this Extension you can gain performance remembering that the scene objects for this Extension need to be named this way ex: 1-sword, 2-shield, 3-fire in this way you probably are going to generate a sucess binary search for your object.
 
-This implemetation I found when I was studing c++ data structs on CodeWars and I manage to use it in Unity. Thank you so much use it as many times as you can be happy making cool games! :)
+This implemetation I Imagined when I was studing c++ data structs on CodeWars and I manage to use it in Unity. Thank you so much use it as many times as you can be happy making cool games! :)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Binary search in strings tends to be more costly in terms of processing than binary search in integers. This is due to the nature of the data involved:
