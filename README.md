@@ -19,7 +19,13 @@ Comparison cost: Although it depends on the specific implementation, string comp
 Therefore, due to the greater complexity and greater number of operations involved in comparing strings, binary search on strings is generally more costly in terms of processing than binary search on integers.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-The next step is to try to obtain the name of all the objects in the Unity scene and place them in a List, generating an ID for each object and perform a binary search on the ID, which will be in integer. This will be the finally complete and best performance implementation.
+
+# How to use
+This script is an extension, for example if you have a GameObject renamed as 27-PlayerProjectile you can pass the value 27 to the function OptimizedObjectFinderExtensions.FindObject(27), Another Example: you can reference: GameObject object obj = OptimizedObjectFinderExtensions.FindObject(27 ) or Also use in comparison: if(col.gameObject == OptimizedObjectFinderExtensions.FindObject(27)) { //code here }
+
+Next Goal:
+
+The next goal is to get the names of all objects in the Unity scene, store them in a list, and generate a numeric ID for each object. Then implement a binary search of these IDs to improve performance. Additionally, an extension will be created to automatically generate IDs for all GameObjects in the scene and in Prefabs, eliminating the need to manually set the numeric prefix on GameObjects.
 
 Regards, Rodolfo Correia do Nascimento.  
 06/16/2024
